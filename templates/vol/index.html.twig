@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vol index{% endblock %}
+
+{% block body %}
+    {% block spinner %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+    <h1>Vol index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>VilleDepart</th>
+                <th>VilleArrive</th>
+                <th>DateDepart</th>
+                <th>HeureDepart</th>
+                <th>PrixBilletInitial</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vol in vols %}
+            <tr>
+                <td>{{ vol.id }}</td>
+                <td>{{ vol.villeDepart }}</td>
+                <td>{{ vol.villeArrive }}</td>
+                <td>{{ vol.dateDepart ? vol.dateDepart|date('Y-m-d') : '' }}</td>
+                <td>{{ vol.heureDepart ? vol.heureDepart|date('H:i:s') : '' }}</td>
+                <td>{{ vol.prixBilletInitial }}</td>
+                <td>
+                    <a href="{{ path('app_vol_show', {'id': vol.id}) }}">show</a>
+                    <a href="{{ path('app_vol_edit', {'id': vol.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">aucun enregistrement n'a été trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vol_new') }}">Ajouter un vol</a>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+        <div class="container py-5">
+
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <h4><a href="{{ path('app_admin') }}">retour</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+{% endblock %}

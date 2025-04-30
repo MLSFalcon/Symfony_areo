@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avion index{% endblock %}
+
+{% block body %}
+
+<body>
+{% block spinner %}
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ parent() }}
+{% endblock %}
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-secondary text-uppercase">Page Admin</h6>
+            <h1 class="mb-5">Que voulez-vous gérer ?</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="{{ asset("img/team-1.jpg") }}" alt="">
+                    </div>
+                    <h4 class="mb-3">Utilisateurs</h4>
+                    <p>Gérez les utilisateurs et pilotes du site</p>
+                    <a class="btn-slide mt-2" href="{{ path("app_utilisateur_index") }}"><i class="fa fa-arrow-right"></i><span>Accéder</span></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="{{ asset("img/service-1.jpg") }}" alt="">
+                    </div>
+                    <h4 class="mb-3">Avions</h4>
+                    <p>Gérez les avions disponibles</p>
+                    <a class="btn-slide mt-2" href="{{ path("app_avion_index") }}"><i class="fa fa-arrow-right"></i><span>Accéder</span></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="{{ asset("img/1.jpg") }}" alt="">
+                    </div>
+                    <h4 class="mb-3">Modèles</h4>
+                    <p>Gérez les modèles ainsi que les marques d'avions</p>
+                    <a class="btn-slide mt-2" href="{{ path("app_modele_index") }}"><i class="fa fa-arrow-right"></i><span>Accéder</span></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="overflow-hidden mb-4">
+                        <img class="img-fluid" src="{{ asset("img/avionSol.jpg") }}" alt="">
+                    </div>
+                    <h4 class="mb-3">Vols</h4>
+                    <p>Gérez les vols disponibles</p>
+                    <a class="btn-slide mt-2" href="{{ path("app_vol_index") }}"><i class="fa fa-arrow-right"></i><span>Accéder</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+{% endblock %}

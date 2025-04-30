@@ -1,0 +1,168 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avion index{% endblock %}
+
+{% block body %}
+
+<body>
+{% block spinner %}
+    {{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ parent() }}
+{% endblock %}
+
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0 pb-5">
+    <div class="owl-carousel header-carousel position-relative mb-5">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="../../../../../Users/Cheetoh/Downloads/logistica-1.0.0/logistica-1.0.0/img/carousel-1.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">#1 Place For Your <span class="text-primary">Logistics</span> Solution</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="../../../../../Users/Cheetoh/Downloads/logistica-1.0.0/logistica-1.0.0/img/carousel-2.jpg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics Solution</h5>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">#1 Place For Your <span class="text-primary">Transport</span> Solution</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- About Start -->
+<div class="container-fluid overflow-hidden py-5 px-lg-0">
+    <div class="container about py-5 px-lg-0">
+        <div class="row g-5 mx-lg-0">
+            <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset("img/avionSol.jpg") }}" style="object-fit: cover;" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="text-secondary text-uppercase mb-3">A propos</h6>
+                <h1 class="mb-5">Solution fiable et économique</h1>
+                <p class="mb-5">Nos équipes qui travaillent en étroite collaboration avec de nombreuses companies aériennes s'assurent de l'efficacité ainsi que de la professionalité de toutes les entreprises travaillant avec nous</p>
+                <div class="row g-4 mb-5">
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                        <h5>Service Mondial</h5>
+                        <p class="m-0">Notre aéroport est liée à plus de 250 destinations dans le monde entier </p>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                        <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                        <h5>S.A.V de qualité</h5>
+                        <p class="m-0">Nos équipe s'engagent à assurer une qualité des services optimales aussi bien sur les délais que sur l'agréabilité de nos espaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Fact Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase mb-3">Des statistiques</h6>
+                <h1 class="mb-5">L'aéroport #1 en France</h1>
+                <p class="mb-5">Nous sommes pour la 4ème années consécutive l'aéroport accueillant le plus de monde en France</p>
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
+                    <div class="ps-4">
+                        <h6>Appelez si vous avez des questions !</h6>
+                        <h3 class="text-primary m-0">+012 345 6789</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4 align-items-center">
+                    <div class="col-sm-6">
+                        <div class="bg-primary p-4 mb-4 wow fadeIn" data-wow-delay="0.3s">
+                            <i class="fa fa-users fa-2x text-white mb-3"></i>
+                            <h2 class="text-white mb-2" data-toggle="counter-up">142 643 Clients Satisfaits</h2>
+                            <p class="text-white mb-0">Clients satisfaits</p>
+                        </div>
+                        <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
+                            <i class="fa fa-address-book fa-2x text-white mb-3"></i>
+                            <h2 class="text-white mb-2" data-toggle="counter-up">54 312</h2>
+                            <p class="text-white mb-0">Vols complétés en 2024</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="bg-success p-4 wow fadeIn" data-wow-delay="0.7s">
+                            <i class="fa fa-star fa-2x text-white mb-3"></i>
+                            <h2 class="text-white mb-2" data-toggle="counter-up">3,4 Millions</h2>
+                            <p class="text-white mb-0">Comptes crée depuis la création du site</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+    <div class="container py-5">
+        <div class="center">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Address</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+</body>
+{% endblock %}

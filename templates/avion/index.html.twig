@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avion index{% endblock %}
+
+{% block body %}
+    <body>
+    {% block spinner %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for avion in avions %}
+            <tr>
+                <td>{{ avion.id }}</td>
+                <td>{{ avion.nom }}</td>
+                <td>
+                    <a href="{{ path('app_avion_show', {'id': avion.id}) }}">Afficher</a>
+                    <a href="{{ path('app_avion_edit', {'id': avion.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_avion_new') }}">Ajouter un Avion</a>
+    </body>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+        <div class="container py-5">
+
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <h4><a href="{{ path('app_admin') }}">retour</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+{% endblock %}
+
+

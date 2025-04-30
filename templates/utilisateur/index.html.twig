@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur index{% endblock %}
+
+{% block body %}
+    {% block spinner %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+    {% endblock %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de Naissance</th>
+                <th>Ville</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+                <td>{{ utilisateur.password }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ utilisateur.ville }}</td>
+                <td>
+                    <a href="{{ path('app_utilisateur_show', {'id': utilisateur.id}) }}">Afficher</a>
+                    <a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_utilisateur_new') }}">Ajouter Nouvel utilisateur</a>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
+        <div class="container py-5">
+
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <h4><a href="{{ path('app_admin') }}">retour</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+{% endblock %}
