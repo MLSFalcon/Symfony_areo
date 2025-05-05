@@ -18,6 +18,7 @@ class VolType extends AbstractType
             ->add('heureDepart')
             ->add('prixBilletInitial')
             ->add('refAvion')
+            ->add('refPilote')
         ;
     }
 

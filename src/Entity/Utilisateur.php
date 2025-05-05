@@ -48,9 +48,13 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'utilisateurs')]
     private ?Modele $ref_modele = null;
 
+    #[ORM\OneToMany(mappedBy: 'ref_pilote', targetEntity: Vol::class)]
+    private Collection $vols;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->vols = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -249,5 +253,35 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(): string
     {
         return $this->nom;// TODO: Implement __toString() method.
+    }
+
+    /**
+     * @return Collection<int, Vol>
+     */
+    public function getVols(): Collection
+    {
+        return $this->vols;
+    }
+
+    public function addVol(Vol $vol): static
+    {
+        if (!$this->vols->contains($vol)) {
+            $this->vols->add($vol);
+            $vol->setRefPilote($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVol(Vol $vol): static
+    {
+        if ($this->vols->removeElement($vol)) {
+            // set the owning side to null (unless already changed)
+            if ($vol->getRefPilote() === $this) {
+                $vol->setRefPilote(null);
+            }
+        }
+
+        return $this;
     }
 }
