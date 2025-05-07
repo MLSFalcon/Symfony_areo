@@ -73,6 +73,11 @@
                             <a href="{{ path('app_admin') }}" class="nav-item nav-link active">Admin</a>
                         {% endif %}
                     {% endif %}
+                    {% if app.user %}
+                        {% if 'ROLE_PILOTE' in app.user.roles %}
+                            <a href="{{ path('app_conges_new') }}" class="nav-item nav-link active">Prendre un congés</a>
+                        {% endif %}
+                    {% endif %}
                     <div class="nav-item dropdown">
                         {% if app.user %}
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ app.user.nom }}</a>
