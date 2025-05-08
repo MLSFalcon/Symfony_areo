@@ -17,11 +17,11 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Date de Naissance</th>
                 <th>Ville</th>
+                <th>Modèle</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -31,11 +31,11 @@
                 <td>{{ utilisateur.id }}</td>
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                <td>{{ utilisateur.password }}</td>
                 <td>{{ utilisateur.nom }}</td>
                 <td>{{ utilisateur.prenom }}</td>
                 <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ utilisateur.ville }}</td>
+                <td>{{ utilisateur.refModele }}</td>
                 <td>
                     <a href="{{ path('app_utilisateur_show', {'id': utilisateur.id}) }}">Afficher</a>
                     <a href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">Modifier</a>

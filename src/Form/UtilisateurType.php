@@ -18,14 +18,15 @@ class UtilisateurType extends AbstractType
             ->add('roles', ChoiceType::class, [
                 'choices'  => [
                     'Utilisateur' => 'ROLE_USER',
+                    'Pilote' => 'ROLE_PILOTE',
+                    'Admin' => 'ROLE_ADMIN',
                 ],
                 'multiple' => true,
                 'expanded' => true,
                 'label'    => 'Rôles',
                 'data'     => ['ROLE_USER'],
-                'disabled' => true,
+                'disabled' => false,
             ])
-            ->add('password')
             ->add('nom')
             ->add('prenom')
             ->add('dateNaissance',DateType::class, [

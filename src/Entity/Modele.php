@@ -50,7 +50,7 @@ class Modele
     public function __toString(): string
     {
         // TODO: Implement __toString() method.
-        return $this->marque." ".$this->modele;
+        return $this->modele;
     }
 
     public function setModele(string $modele): static

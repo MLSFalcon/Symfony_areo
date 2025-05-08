@@ -97,7 +97,7 @@ class ReservationController extends AbstractController
         }
         $entityManager->remove($reservation);
         $entityManager->flush();
-        
+
 
         return $this->redirectToRoute('app_utilisateur_profil', [], Response::HTTP_SEE_OTHER);
     }
