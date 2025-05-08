@@ -34,13 +34,18 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="bg-light text-center p-5 wow fadeIn" data-wow-delay="0.5s">
-                        {% if reservation is empty %}
+                        {% if reservations is empty %}
                             <p>Vous n'avez pas encore de réservations.</p>
                         {% else %}
                             <ul>
                                 {% for reservation in reservations %}
                                     <li>
-                                        {{ reservation.nom }} - {{ reservation.date | date('d/m/Y') }}
+                                        Prix Billet : {{ reservation.prixBillet }} -
+                                        Date du départ : {{ reservation.refVol.dateDepart|date('Y-m-d')|default('') }} -
+                                        Heure de départ : {{ reservation.refVol.heureDepart|date('H:i:s')|default('') }}
+                                        <form action="{{ path('app_reservation_delete', { 'id': reservation.id }) }}" method="post">
+                                            <button type="submit" class="btn btn-danger">Annuler</button>
+                                        </form>
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -67,8 +72,8 @@
                                     <ul>
                                         {% for conge in conges %}
                                             <li>
-                                                {{ conge.dateDebut ? conge.dateFin|date('Y-m-d') : ''}} - {{ conge.dateFin ? conge.dateFin|date('Y-m-d') : '' }} -
-                                                {{ conge.estValide ? 'Yes' : 'No' }} -  {{ conge.refValidationAdmin }}
+                                                Date : {{ conge.dateDebut ? conge.dateFin|date('Y-m-d') : ''}} - {{ conge.dateFin ? conge.dateFin|date('Y-m-d') : '' }} -
+                                                est valide : {{ conge.estValide ? 'Yes' : 'No' }} -  Valider par : {{ conge.refValidationAdmin }}
                                             </li>
                                         {% endfor %}
                                     </ul>

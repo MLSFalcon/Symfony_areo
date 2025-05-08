@@ -106,7 +106,7 @@ class UtilisateurController extends AbstractController
         return $this->renderForm('utilisateur/profil.html.twig', [
             'utilisateur' => $utilisateur,
             'form' => $form,
-            'reservation' => $reservation,
+            'reservations' => $reservation,
             'conges' => $conge,
         ]);
     }

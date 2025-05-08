@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block spinner %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block navbar %}
+        {{ parent() }}
+
+    {% endblock %}
+
+    {% set taille = 0 %}
+    {% for destination in destinations %}
+        {% if taille % 3 == 0 %}
+            <div class="row g-4">
+        {% endif %}
+
+        <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item p-4">
+                <div class="overflow-hidden mb-4">
+                    <img class="img-fluid" src="{{ asset("img/service-1.jpg") }}" alt="">
+                </div>
+                <h5 class="mb-3">ville départ : {{ destination.villeDepart }} - destination : {{ destination.villeArrive }}</h5>
+                <h5 class="mb-3">départ le {{ destination.dateDepart ? destination.dateDepart|date('Y-m-d') : '' }} à {{ destination.heureDepart ? destination.heureDepart|date('H:i:s') : '' }}</h5>
+                <h5 class="mb-3">Prix : {{ destination.prixBilletInitial }} euros </h5>
+                <a class="btn-slide mt-2" href="{{ path('app_reservation_new', {'id' : destination.id ,'prix' : destination.prixBilletInitial})}}"><i class="fa fa-arrow-right"></i><span>Réserver</span></a>
+            </div>
+        </div>
+
+        {% set taille = taille + 1 %}
+
+        {% if taille % 3 == 0 %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    {% if taille % 3 != 0 %}
+        </div>
+    {% endif %}
+
+
+{% endblock %}
+
+    {% block title %}
+
+    {% endblock %}
+

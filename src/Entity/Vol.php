@@ -166,4 +166,8 @@ class Vol
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->villeDepart.$this->villeArrive.$this->dateDepart.$this->heureDepart.$this->prixBilletInitial ;// TODO: Implement __toString() method.
+    }
 }
