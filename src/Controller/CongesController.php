@@ -18,6 +18,9 @@ class CongesController extends AbstractController
     #[Route('/', name: 'app_conges_index', methods: ['GET'])]
     public function index(CongesRepository $congesRepository): Response
     {
+        if (!$this->getUser() || !in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+            return $this->redirectToRoute('app_home');
+        }
         return $this->render('conges/index.html.twig', [
             'conges' => $congesRepository->findAll(),
         ]);
@@ -26,6 +29,9 @@ class CongesController extends AbstractController
     #[Route('/new', name: 'app_conges_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->getUser() || !in_array('ROLE_PILOTE', $this->getUser()->getRoles()) && !in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+            return $this->redirectToRoute('app_home');
+        }
         $conge = new Conges();
         $form = $this->createForm(CongesType::class, $conge);
         $form->handleRequest($request);
@@ -49,6 +55,9 @@ class CongesController extends AbstractController
     #[Route('/{id}', name: 'app_conges_show', methods: ['GET'])]
     public function show(Conges $conge): Response
     {
+        if (!$this->getUser() || !in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+            return $this->redirectToRoute('app_home');
+        }
         return $this->render('conges/show.html.twig', [
             'conge' => $conge,
         ]);
@@ -57,6 +66,9 @@ class CongesController extends AbstractController
     #[Route('/{id}/edit', name: 'app_conges_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Conges $conge, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->getUser() || !in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+            return $this->redirectToRoute('app_home');
+        }
         $form = $this->createForm(CongesEditType::class, $conge);
         $form->handleRequest($request);
         $conge->setRefValidationAdmin($this->getUser());
@@ -75,6 +87,9 @@ class CongesController extends AbstractController
     #[Route('/{id}', name: 'app_conges_delete', methods: ['POST'])]
     public function delete(Request $request, Conges $conge, EntityManagerInterface $entityManager): Response
     {
+        if (!$this->getUser() || !in_array('ROLE_ADMIN', $this->getUser()->getRoles())) {
+            return $this->redirectToRoute('app_home');
+        }
         if ($this->isCsrfTokenValid('delete'.$conge->getId(), $request->request->get('_token'))) {
             $entityManager->remove($conge);
             $entityManager->flush();

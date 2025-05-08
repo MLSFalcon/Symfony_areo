@@ -19,6 +19,8 @@
                 <th>DateDebut</th>
                 <th>DateFin</th>
                 <th>EstValide</th>
+                <th>Pilote</th>
+                <th>Valider par</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -29,6 +31,8 @@
                 <td>{{ conge.dateDebut ? conge.dateFin|date('Y-m-d') : ''}}</td>
                 <td>{{ conge.dateFin ? conge.dateFin|date('Y-m-d') : '' }}</td>
                 <td>{{ conge.estValide ? 'Yes' : 'No' }}</td>
+                <td>{{ conge.refPilote }}</td>
+                <td>{{ conge.refValidationAdmin }}</td>
                 <td>
                     <a href="{{ path('app_conges_show', {'id': conge.id}) }}">show</a>
                     <a href="{{ path('app_conges_edit', {'id': conge.id}) }}">edit</a>
